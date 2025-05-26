@@ -8,6 +8,8 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { v4 as uuidv4 } from "uuid";
 import SlantedPhotos from "@/src/ui-components/slantedPhotos";
+import { AuroraText } from "@/src/components/magicui/aurora-text";
+import { TextAnimate } from "@/src/components/magicui/text-animate";
 
 function App() {
   const australianIcons = [
@@ -118,7 +120,7 @@ function App() {
   return (
     <section className="pb-20">
       <div className="w-screen h-fit">
-        <div className="w-screen min-h-screen h-auto bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] py-5 flex justify-center items-center">
+        <div className="w-screen min-h-screen h-auto bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] py-5 flex justify-center items-center overflow-x-hidden">
           <div className="flex flex-col">
             <div className="grid grid-cols-6 gap-2 md:5 lg:gap-7">
               <SlantedPhotos clockwise imageSource="/images/aus-flag.jpeg" />
@@ -130,12 +132,63 @@ function App() {
             </div>
 
             <div className="my-20">
-              <h4 className="text-3xl md:text-6xl font-black text-[#005979] text-center uppercase">
-                Australia Tour
+              <h4 className="text-4xl lg:text-5xl font-black text-center text-gray-400 text-wrap flex flex-col md:flex-row items-center justify-center">
+                Our&nbsp;
+                <AuroraText className="text-6xl lg:text-8xl uppercase">
+                  Australia
+                </AuroraText>
+                &nbsp;Tour
               </h4>
-              <h4 className="text-3xl md:text-6xl font-black text-[#f2ecff] text-center uppercase -mt-[40px] md:-mt-[66px] -ml-[5px]">
-                Australia Tour
-              </h4>
+              <TextAnimate
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 30,
+                    rotate: 45,
+                    scale: 0.5,
+                  },
+                  show: (i) => ({
+                    opacity: 1,
+                    y: 0,
+                    rotate: 0,
+                    scale: 1,
+                    transition: {
+                      delay: i * 0.1,
+                      duration: 0.4,
+                      y: {
+                        type: "spring",
+                        damping: 12,
+                        stiffness: 200,
+                        mass: 0.8,
+                      },
+                      rotate: {
+                        type: "spring",
+                        damping: 8,
+                        stiffness: 150,
+                      },
+                      scale: {
+                        type: "spring",
+                        damping: 10,
+                        stiffness: 300,
+                      },
+                    },
+                  }),
+                  exit: (i) => ({
+                    opacity: 0,
+                    y: 30,
+                    rotate: 45,
+                    scale: 0.5,
+                    transition: {
+                      delay: i * 0.1,
+                      duration: 0.4,
+                    },
+                  }),
+                }}
+                by="character"
+                className="text-zinc-400 text-xl md:text-2xl text-center italic"
+              >
+                Let&apos;s Gooooo!
+              </TextAnimate>
             </div>
 
             <div className="grid grid-cols-6 gap-2 md:5 lg:gap-7">
@@ -150,8 +203,10 @@ function App() {
         </div>
 
         <section className="p-5 md:p-10">
-          <div className="flex items-center gap-5 mt-5">
-            <h2 className="text-2xl md:text-3xl font-semibold">Visitors</h2>
+          <div className="flex items-center gap-3 mt-5">
+            <AuroraText className="text-2xl md:text-3xl font-semibold uppercase">
+              Visitors
+            </AuroraText>
 
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
@@ -175,7 +230,7 @@ function App() {
                       delay: 0.05 + index * 0.06,
                     },
                   }}
-                  className="size-[130px] md:size-40 bg-pink-400 border-[3px] border-gray-200 overflow-hidden"
+                  className="size-[130px] md:size-40 border-[4px] border-[#2F2A62] overflow-hidden shadow-lg"
                 >
                   <Image
                     width={300}
@@ -197,8 +252,10 @@ function App() {
         </section>
 
         <section className="p-5 md:p-10">
-          <div className="flex items-center gap-5">
-            <h2 className="text-2xl md:text-3xl font-semibold">Destinations</h2>
+          <div className="flex items-center gap-3">
+            <AuroraText className="text-2xl md:text-3xl font-semibold uppercase">
+              Destinations
+            </AuroraText>
 
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
