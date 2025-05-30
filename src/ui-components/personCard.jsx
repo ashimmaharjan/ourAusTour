@@ -32,8 +32,8 @@ const PersonCard = ({ name, image, index }) => {
         className="w-full md:w-[85%] h-auto aspect-square border-[3px] md:border-[5px] rounded-xl md:rounded-3xl border-gray-300 overflow-hidden drop-shadow-2xl relative"
       >
         <Image
-          width={300}
-          height={300}
+          width={800}
+          height={800}
           quality={100}
           loading="lazy"
           src={image}

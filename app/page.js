@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 
-// import "./assets/fonts/transforma.css";
-// import "./assets/fonts/TransformaMix_Trial-Regular.otf";
-
 import { motion } from "motion/react";
 import { v4 as uuidv4 } from "uuid";
 import SlantedPhotos from "@/src/ui-components/slantedPhotos";
@@ -187,7 +184,7 @@ function App() {
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
 
-          <div className="w-full h-fit p-5 md:p-10 grid grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-5 md:gap-x-10">
+          <div className="w-full h-fit p-5 md:p-10 grid grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-5 md:gap-x-5 md:gap-y-10 lg:gap-y-16">
             {familyMembers.map((member, index) => (
               <PersonCard
                 key={index}
