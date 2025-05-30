@@ -10,6 +10,10 @@ import { v4 as uuidv4 } from "uuid";
 import SlantedPhotos from "@/src/ui-components/slantedPhotos";
 import { AuroraText } from "@/src/components/magicui/aurora-text";
 import { TextAnimate } from "@/src/components/magicui/text-animate";
+import Heading from "@/src/ui-components/heading";
+import PersonCard from "@/src/ui-components/personCard";
+
+import { familyMembers } from "@/lib/data/familyMembers";
 
 function App() {
   const australianIcons = [
@@ -87,33 +91,6 @@ function App() {
       id: uuidv4(),
       name: "Minto Temple",
       imageSrc: "/images/minto.jpg",
-    },
-  ];
-
-  const familyMembers = [
-    {
-      name: "Tara B.",
-      image: "/images/dad.jpg",
-    },
-    {
-      name: "Rama",
-      image: "/images/mom.jpg",
-    },
-    {
-      name: "Namrata",
-      image: "/images/namrata-demo.jpeg",
-    },
-    {
-      name: "Buddha R.",
-      image: "/images/dad.jpg",
-    },
-    {
-      name: "Bina",
-      image: "/images/mom.jpg",
-    },
-    {
-      name: "Ashim",
-      image: "/images/user.jpg",
     },
   ];
 
@@ -203,63 +180,30 @@ function App() {
         </div>
 
         <section className="p-5 md:p-10">
-          <div className="flex items-center gap-3 mt-5">
-            <AuroraText className="text-2xl md:text-3xl font-semibold uppercase">
-              Visitors
-            </AuroraText>
-
+          <div className="flex items-center gap-5 mt-5">
+            <Heading title="Visitors" />
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
 
-          <div className="w-full h-fit p-10 grid grid-cols-2 lg:grid-cols-3 gap-y-16">
+          <div className="w-full h-fit p-5 md:p-10 grid grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-5 md:gap-x-10">
             {familyMembers.map((member, index) => (
-              <div
+              <PersonCard
                 key={index}
-                className="col-span-1 flex flex-col justify-center items-center"
-              >
-                <motion.div
-                  style={{ borderRadius: "60% 40% 35% 65% / 51% 58% 42% 49% " }}
-                  initial={{ scale: 0, filter: "blur(50px)" }}
-                  // viewport={{ once: true }}
-                  whileInView={{
-                    scale: 1,
-                    filter: "blur(0px)",
-                    transition: {
-                      type: "tween",
-                      duration: 0.3,
-                      delay: 0.05 + index * 0.06,
-                    },
-                  }}
-                  className="size-[130px] md:size-40 border-[4px] border-[#2F2A62] overflow-hidden shadow-lg"
-                >
-                  <Image
-                    width={300}
-                    height={300}
-                    quality={100}
-                    loading="lazy"
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-
-                <span className="text-center mt-4 font-semibold text-gray-400">
-                  {member.name}
-                </span>
-              </div>
+                name={member.name}
+                image={member.image}
+                index={index}
+              />
             ))}
           </div>
         </section>
 
         <section className="p-5 md:p-10">
-          <div className="flex items-center gap-3">
-            <AuroraText className="text-2xl md:text-3xl font-semibold uppercase">
-              Destinations
-            </AuroraText>
+          <div className="flex items-center gap-5">
+            <Heading title="Destinations" />
 
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8 p-5 md:p-10">
             {australianIcons.map((icon, index) => (
               <motion.div
                 key={index}
