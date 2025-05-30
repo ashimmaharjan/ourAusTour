@@ -29,7 +29,7 @@ const PersonCard = ({ name, image, index }) => {
             delay: 0,
           },
         }}
-        className="w-full md:w-[85%] h-auto aspect-square border-[2px] rounded-xl md:rounded-3xl border-gray-200 overflow-hidden drop-shadow-2xl relative"
+        className="w-full md:w-[85%] h-auto aspect-square border-[3px] md:border-[5px] rounded-xl md:rounded-3xl border-gray-300 overflow-hidden drop-shadow-2xl relative"
       >
         <Image
           width={300}

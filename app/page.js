@@ -14,6 +14,7 @@ import Heading from "@/src/ui-components/heading";
 import PersonCard from "@/src/ui-components/personCard";
 
 import { familyMembers } from "@/lib/data/familyMembers";
+import { LineShadowText } from "@/src/components/magicui/line-shadow-text";
 
 function App() {
   const australianIcons = [
@@ -97,6 +98,7 @@ function App() {
   return (
     <section className="pb-20">
       <div className="w-screen h-fit">
+        {/* hero section */}
         <div className="w-screen min-h-screen h-auto bg-gradient-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] py-5 flex justify-center items-center overflow-x-hidden">
           <div className="flex flex-col">
             <div className="grid grid-cols-6 gap-2 md:5 lg:gap-7">
@@ -180,7 +182,7 @@ function App() {
         </div>
 
         <section className="p-5 md:p-10">
-          <div className="flex items-center gap-5 mt-5">
+          <div className="flex items-center gap-5 mt-5 px-5 md:px-10">
             <Heading title="Visitors" />
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
@@ -198,12 +200,12 @@ function App() {
         </section>
 
         <section className="p-5 md:p-10">
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 px-5 md:px-10">
             <Heading title="Destinations" />
 
             <div className="w-full h-[1px] bg-gray-400"></div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-8 p-5 md:p-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-10 mt-8 p-5 md:p-10">
             {australianIcons.map((icon, index) => (
               <motion.div
                 key={index}
