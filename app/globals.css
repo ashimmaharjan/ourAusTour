@@ -5,6 +5,7 @@
 
 body {
   overflow-x: hidden;
+  background: #f9fafb;
 }
 
 @theme inline {
@@ -66,16 +67,16 @@ body {
       transform: rotate(-5deg) scale(0.9);
     }
   }
-  --animate-line-shadow: line-shadow 15s linear infinite
-;
+  --animate-line-shadow: line-shadow 15s linear infinite;
   @keyframes line-shadow {
-  0% {
-    background-position: 0 0;
+    0% {
+      background-position: 0 0;
     }
-  100% {
-    background-position: 100% -100%;
+    100% {
+      background-position: 100% -100%;
     }
-  }}
+  }
+}
 
 :root {
   --radius: 0.625rem;

@@ -2,35 +2,36 @@ import Image from "next/image";
 
 import { motion } from "motion/react";
 
-const SlantedPhotos = ({ clockwise, imageSource }) => {
+const SlantedPhotos = ({ clockwise, imageSource, index }) => {
   return (
     <motion.div
-      initial={{ width: "10%", opacity: 0, filter: "blur(50px)" }}
+      initial={{ scale: 0, opacity: 0 }}
       whileInView={{
-        width: "100%",
-        opacity: 0.5,
-        filter: "blur(0px)",
+        scale: 1,
+        opacity: 0.65,
         transition: {
           duration: 0.3,
-          type: "tween",
+          type: "spring",
+          stiffness: 200,
+          damping: 30,
+          delay: 0.2 + index * 0.1,
         },
       }}
+      whileHover={{
+        opacity: 0.85,
+      }}
       className={`${
-        clockwise
-          ? "-rotate-[25deg] rounded-t-[40px]"
-          : "rotate-[25deg] rounded-b-[40px]"
-      } col-span-1 size-20 md:size-32 bg-gray-200 shadow-2xl p-1 overflow-hidden opacity-50 hover:rotate-0 hover:scale-125 hover:opacity-95 transition-all duration-300 `}
+        clockwise ? "-rotate-[25deg]" : "rotate-[25deg]"
+      } col-span-1 size-16 md:size-24 lg:size-32 bg-gray-200 rounded-full shadow-2xl p-1 overflow-hidden`}
     >
       <Image
         src={imageSource}
         alt="slanted-image"
-        width={500}
-        height={500}
+        width={800}
+        height={800}
         quality={100}
         loading="lazy"
-        className={`w-full h-full object-cover ${
-          clockwise ? "rounded-t-[36px]" : "rounded-b-[36px]"
-        }`}
+        className="object-cover rounded-full w-full h-full overflow-hidden"
       />
     </motion.div>
   );
